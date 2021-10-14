@@ -3,7 +3,7 @@ RUN sed -e 's|^mirrorlist=|#mirrorlist=|g' \
          -e 's|^#baseurl=http://mirror.centos.org|baseurl=https://mirrors.tuna.tsinghua.edu.cn|g' \
          -i.bak \
          /etc/yum.repos.d/CentOS-*.repo
-RUN sudo yum makecache
+RUN yum makecache
 RUN yum update -y
 RUN DEBIAN_FRONTEND=noninteractive yum install openssh-server apache2-bin apache2-data apache2-utils init apache2 wget npm apache2 php php-curl mysql-server php-cli php-fpm php-json php-common php-mysql php-zip php-gd php-mbstring php-xml php-pear php-bcmath -y
 RUN npm install -g wstunnel
